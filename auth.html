@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Ride Go</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-screen">
+            <div class="back-button">
+                <a href="index.html">&larr;</a>
+            </div>
+            <div class="auth-header">
+                <h2>Sign up</h2>
+                <p>Already have an account? <a href="#" id="toggle-auth">Log in</a></p>
+            </div>
+            <div class="auth-form">
+                <form id="signup-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First name</label>
+                            <input type="text" id="first-name" placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input type="text" id="last-name" placeholder="Enter last name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="user@gmail.com">
+                        <button type="button" class="clear-input" id="clear-email">&times;</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <div class="phone-input">
+                            <div class="country-code">
+                                <select id="country-code">
+                                    <option value="+1">+1</option>
+                                    <option value="+91">+91</option>
+                                </select>
+                            </div>
+                            <input type="tel" id="phone" placeholder="123-456-7890">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••">
+                        <button type="button" class="toggle-password" id="toggle-password">👁️</button>
+                    </div>
+                    <div class="form-group role-selection">
+                        <div class="role-option">
+                            <input type="radio" id="role-user" name="role" value="user" checked>
+                            <label for="role-user">Rider</label>
+                        </div>
+                        <div class="role-option">
+                            <input type="radio" id="role-driver" name="role" value="driver">
+                            <label for="role-driver">Driver</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-button">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Load Supabase config before auth.js -->
+    <script src="supabase/config.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html> 

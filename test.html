@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Go - Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #8568FF;
+            border-bottom: 2px solid #8568FF;
+            padding-bottom: 10px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        button {
+            background-color: #8568FF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #6a4fd0;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            min-height: 100px;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #F44336;
+        }
+        .warning {
+            color: #FF9800;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+            max-height: 300px;
+        }
+        .file-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .file-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-status {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-success {
+            background-color: #4CAF50;
+        }
+        .status-error {
+            background-color: #F44336;
+        }
+        .status-warning {
+            background-color: #FF9800;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ride Go - Application Test</h1>
+    
+    <div class="test-section">
+        <h2>Setup Check</h2>
+        <p>Automatically check if all required components are available.</p>
+        <button id="run-setup-check">Run Setup Check</button>
+        <div id="setup-check-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Navigation Tests</h2>
+        <div class="button-group">
+            <button onclick="window.location.href='index.html'">Go to Landing Page</button>
+            <button onclick="window.location.href='auth.html'">Go to Auth Page</button>
+            <button onclick="window.location.href='user.html'">Go to User Dashboard</button>
+            <button onclick="window.location.href='driver.html'">Go to Driver Dashboard</button>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Resource Tests</h2>
+        <div class="button-group">
+            <button onclick="testHTML()">Test HTML Files</button>
+            <button onclick="testCSS()">Test CSS Files</button>
+            <button onclick="testJS()">Test JS Files</button>
+            <button onclick="testAssets()">Test Assets</button>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>API Tests</h2>
+        <div class="button-group">
+            <button onclick="testSupabase()">Test Supabase Connection</button>
+            <button onclick="testGoogleMaps()">Test Google Maps</button>
+        </div>
+    </div>
+    
+    <div id="result">
+        <p>Test results will appear here...</p>
+    </div>
+    
+    <script>
+        const resultDiv = document.getElementById('result');
+        
+        function updateResult(message, isSuccess = true) {
+            resultDiv.innerHTML = `<p class="${isSuccess ? 'success' : 'error'}">${message}</p>`;
+        }
+        
+        function testHTML() {
+            const files = ['index.html', 'auth.html', 'user.html', 'driver.html', 'ride-confirm.html'];
+            let completed = 0;
+            let successful = 0;
+            
+            resultDiv.innerHTML = '<p>Testing HTML files...</p>';
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        completed++;
+                        if (response.ok) successful++;
+                        
+                        if (completed === files.length) {
+                            updateResult(`HTML Test: ${successful}/${files.length} files found.`, successful === files.length);
+                        }
+                    })
+                    .catch(error => {
+                        completed++;
+                        if (completed === files.length) {
+                            updateResult(`HTML Test: ${successful}/${files.length} files found.`, successful === files.length);
+                        }
+                    });
+            });
+        }
+        
+        function testCSS() {
+            fetch('styles/style.css')
+                .then(response => {
+                    if (response.ok) {
+                        updateResult('CSS Test: style.css found and loaded successfully.');
+                    } else {
+                        updateResult('CSS Test: Failed to load style.css.', false);
+                    }
+                })
+                .catch(error => {
+                    updateResult(`CSS Test: Error - ${error.message}`, false);
+                });
+        }
+        
+        function testJS() {
+            const files = ['scripts/auth.js', 'scripts/user.js', 'scripts/driver.js', 'scripts/map.js', 'supabase/config.js'];
+            let completed = 0;
+            let successful = 0;
+            
+            resultDiv.innerHTML = '<p>Testing JavaScript files...</p>';
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        completed++;
+                        if (response.ok) successful++;
+                        
+                        if (completed === files.length) {
+                            updateResult(`JavaScript Test: ${successful}/${files.length} files found.`, successful === files.length);
+                        }
+                    })
+                    .catch(error => {
+                        completed++;
+                        if (completed === files.length) {
+                            updateResult(`JavaScript Test: ${successful}/${files.length} files found.`, successful === files.length);
+                        }
+                    });
+            });
+        }
+        
+        function testAssets() {
+            const files = [
+                'assets/onboarding-illustration.svg',
+                'assets/app-preview.svg',
+                'assets/icons/logo.svg',
+                'assets/icons/car.svg',
+                'assets/icons/location-pin.svg',
+                'assets/icons/user.svg',
+                'assets/icons/history.svg',
+                'assets/icons/wallet.svg',
+                'assets/icons/package.svg',
+                'assets/icons/calendar.svg',
+                'assets/icons/home.svg'
+            ];
+            let completed = 0;
+            let successful = 0;
+            
+            resultDiv.innerHTML = '<p>Testing asset files...</p>';
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        completed++;
+                        if (response.ok) successful++;
+                        
+                        if (completed === files.length) {
+                            updateResult(`Assets Test: ${successful}/${files.length} files found.`, successful === files.length);
+                        }
+                    })
+                    .catch(error => {
+                        completed++;
+                        if (completed === files.length) {
+                            updateResult(`Assets Test: ${successful}/${files.length} files found.`, successful === files.length);
+                        }
+                    });
+            });
+        }
+        
+        function testSupabase() {
+            if (typeof supabase === 'undefined') {
+                // Try to load Supabase script
+                const script = document.createElement('script');
+                script.src = 'supabase/config.js';
+                script.onload = () => {
+                    if (typeof loadSupabaseClient === 'function') {
+                        updateResult('Supabase Test: Config file loaded, but connection not tested. Please use the app to test authentication.');
+                    } else {
+                        updateResult('Supabase Test: Config file loaded but functions not available.', false);
+                    }
+                };
+                script.onerror = () => {
+                    updateResult('Supabase Test: Failed to load config file.', false);
+                };
+                document.head.appendChild(script);
+            } else {
+                updateResult('Supabase Test: Already initialized.');
+            }
+        }
+        
+        function testGoogleMaps() {
+            if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+                updateResult('Google Maps Test: Maps API not loaded. It will be loaded when visiting pages that require maps.', false);
+            } else {
+                updateResult('Google Maps Test: API loaded successfully.');
+            }
+        }
+        
+        // Setup check functionality
+        document.getElementById('run-setup-check').addEventListener('click', function() {
+            const setupCheckResult = document.getElementById('setup-check-result');
+            setupCheckResult.innerHTML = '<p>Running setup check...</p>';
+            
+            // Load the setup check script
+            const script = document.createElement('script');
+            script.src = 'scripts/check-setup.js';
+            script.onload = async () => {
+                try {
+                    const results = await checkSetup();
+                    displaySetupResults(results);
+                } catch (error) {
+                    setupCheckResult.innerHTML = `<p class="error">Error running setup check: ${error.message}</p>`;
+                }
+            };
+            script.onerror = () => {
+                setupCheckResult.innerHTML = '<p class="error">Failed to load setup check script.</p>';
+            };
+            document.head.appendChild(script);
+        });
+        
+        function displaySetupResults(results) {
+            const setupCheckResult = document.getElementById('setup-check-result');
+            let html = '';
+            
+            // Calculate overall stats
+            const summary = {
+                total: 0,
+                found: 0,
+                missing: []
+            };
+            
+            // Process HTML files
+            if (results.html) {
+                summary.total += results.html.total;
+                summary.found += results.html.found;
+                summary.missing = summary.missing.concat(results.html.missing);
+            }
+            
+            // Process CSS files
+            if (results.css) {
+                summary.total += results.css.total;
+                summary.found += results.css.found;
+                summary.missing = summary.missing.concat(results.css.missing);
+            }
+            
+            // Process JS files
+            if (results.js) {
+                summary.total += results.js.total;
+                summary.found += results.js.found;
+                summary.missing = summary.missing.concat(results.js.missing);
+            }
+            
+            // Process icons
+            if (results.icons) {
+                summary.total += results.icons.total;
+                summary.found += results.icons.found;
+                summary.missing = summary.missing.concat(results.icons.missing);
+            }
+            
+            // Summary section
+            const summaryStatus = summary.found === summary.total ? 'success' : 'error';
+            html += `<h3>Summary</h3>`;
+            html += `<p class="${summaryStatus}">
+                Found ${summary.found}/${summary.total} required files
+                (${Math.round((summary.found / summary.total) * 100)}% complete)
+            </p>`;
+            
+            // Missing files section
+            if (summary.missing.length > 0) {
+                html += `<h3>Missing Files</h3>`;
+                html += `<ul class="file-list">`;
+                summary.missing.forEach(file => {
+                    html += `<li>
+                        <span class="file-status status-error"></span>
+                        ${file}
+                    </li>`;
+                });
+                html += `</ul>`;
+            }
+            
+            // API configuration section
+            html += `<h3>API Configuration</h3>`;
+            html += `<ul class="file-list">`;
+            
+            // Google Maps API
+            const mapsStatus = results.api.googleMaps.status;
+            html += `<li>
+                <span class="file-status status-${mapsStatus}"></span>
+                Google Maps API: ${results.api.googleMaps.message}
+            </li>`;
+            
+            // Supabase API
+            const supabaseStatus = results.api.supabase.status;
+            html += `<li>
+                <span class="file-status status-${supabaseStatus}"></span>
+                Supabase: ${results.api.supabase.message}
+            </li>`;
+            
+            html += `</ul>`;
+            
+            // Set the final HTML
+            setupCheckResult.innerHTML = html;
+        }
+    </script>
+</body>
+</html> 

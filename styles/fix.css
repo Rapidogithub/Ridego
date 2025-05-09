@@ -1,0 +1,969 @@
+/* Fix for layout issues */
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Fix for dashboard layout */
+.dashboard-screen, .driver-dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fix for form elements */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #8568FF;
+}
+
+/* Fix for button layouts */
+button {
+    cursor: pointer;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #8568FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(133, 104, 255, 0.2);
+}
+
+.auth-button:hover {
+    background-color: #7257e6;
+    transform: translateY(-2px);
+}
+
+/* Fix for ride booking panel */
+.ride-booking-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.ride-booking-panel.active {
+    transform: translateY(0);
+}
+
+/* Fix for navigation */
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 4;
+}
+
+/* Fix for map container */
+.map-container {
+    width: 100%;
+    height: 40vh; /* Reduced for better visibility of other elements */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+/* FIX: Action buttons positioning */
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative; /* Changed from absolute to allow normal document flow */
+    width: 100%;
+    z-index: 5 !important; /* Increased z-index to ensure visibility */
+    padding: 15px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Add slight background for better visibility */
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.circular-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative; /* Add this to ensure proper stacking context */
+    z-index: 1; /* Add this to ensure proper stacking context */
+}
+
+.circular-button i {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.circular-button span {
+    font-size: 12px;
+    text-align: center;
+}
+
+.circular-button.active {
+    background-color: #8568FF;
+    color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+/* Fix for ride-form-container */
+.ride-form-container {
+    position: relative; /* Changed from absolute */
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 70px; /* Space for bottom nav */
+    z-index: 3;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.schedule-ride-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #FFFFFF;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Driver dashboard improvements */
+.driver-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve ride request panel */
+.ride-request-panel, .current-ride-panel {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Add step indicators for driver flow */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px;
+    position: relative;
+}
+
+.step-indicator:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #E0E0E0;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.step.active .step-circle {
+    background-color: #8568FF;
+    border-color: #8568FF;
+    color: #FFFFFF;
+}
+
+.step.completed .step-circle {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: #FFFFFF;
+}
+
+.step.completed .step-circle:after {
+    content: '✓';
+    font-size: 14px;
+}
+
+.step-label {
+    font-size: 12px;
+    color: #888888;
+}
+
+.step.active .step-label {
+    color: #333333;
+    font-weight: 500;
+}
+
+.step.completed .step-label {
+    color: #4CAF50;
+}
+
+/* Fix for ride actions in driver panel */
+.ride-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.ride-action-button {
+    padding: 12px 16px;
+    background-color: #8568FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.ride-action-button:disabled {
+    background-color: #E0E0E0;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* Fix for text and alignment issues */
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+}
+
+.auth-error, .auth-success {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.auth-error {
+    background-color: rgba(255, 77, 77, 0.1);
+    color: #FF4D4D;
+}
+
+.auth-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+/* Add cleaner scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fix for iOS buttons */
+button, input, select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Fix for spacing */
+.form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* General responsive fixes */
+@media (max-width: 430px) {
+    .container {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .bottom-navigation,
+    .ride-booking-panel {
+        max-width: 100%;
+    }
+}
+
+/* Pin confirmation styling */
+.pin-confirmation {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pin-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.pin-info i {
+    color: #8568FF;
+    margin-right: 10px;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.pin-info span {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.pin-display {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border: 2px dashed #8568FF;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+.pin-code {
+    font-size: 28px;
+    font-weight: 700;
+    color: #8568FF;
+    letter-spacing: 8px;
+}
+
+.pin-instructions {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 15px;
+    background-color: rgba(255, 152, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.pin-instructions i {
+    color: #FF9800;
+    margin-right: 10px;
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.pin-instructions span {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* PIN verification styles */
+.pin-verification {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pin-verification.active {
+    display: block;
+}
+
+.pin-prompt h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.pin-input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+#pin-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.verify-button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.verify-button:hover {
+    background-color: #005fbf;
+}
+
+/* New home page UI elements */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.notification-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.notification-btn::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: #FF4D4D;
+    border-radius: 50%;
+    display: block;
+}
+
+.primary-cta {
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 5;
+}
+
+.ride-now-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8568FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(133, 104, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80%;
+    max-width: 300px;
+}
+
+.ride-now-btn i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.ride-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(133, 104, 255, 0.4);
+}
+
+.quick-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 20px 0;
+}
+
+.quick-action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+    width: 22%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+}
+
+.quick-action-item i {
+    font-size: 20px;
+    color: #8568FF;
+    margin-bottom: 5px;
+}
+
+.quick-action-item span {
+    font-size: 12px;
+    color: #555;
+}
+
+.quick-action-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.destination-suggestions {
+    margin: 15px 0;
+    padding: 0 15px;
+}
+
+.destination-suggestions h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.suggestion-cards {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 12px;
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+}
+
+.suggestion-card {
+    min-width: 80px;
+    padding: 15px 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+}
+
+.suggestion-card:hover,
+.suggestion-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.suggestion-card i {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.suggestion-card span {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Fix Google Maps Autocomplete Components */
+gmpx-placeautocomplete {
+    width: 100%;
+    --gmpx-color-primary: var(--primary-color);
+    --gmpx-font-family: 'Poppins', sans-serif;
+    --gmpx-font-size-base: 16px;
+    border: none;
+    outline: none;
+}
+
+gmpx-placeautocomplete input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.location-input gmpx-placeautocomplete {
+    flex: 1;
+}
+
+.search-container gmpx-placeautocomplete {
+    flex: 1;
+}
+
+.search-container gmpx-placeautocomplete input {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Fix ride request panel */
+.ride-request-panel {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 100; /* Ensure it's above everything else */
+}
+
+.ride-request-panel.active {
+    display: block;
+    animation: slideUp 0.3s forwards;
+}
+
+.ride-request-details {
+    margin: 15px 0;
+}
+
+.detail-item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.detail-item i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.detail-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: var(--light-text);
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ride-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.ride-action-button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ride-action-button.accept {
+    background: var(--primary-color);
+    color: white;
+}
+
+.ride-action-button.decline {
+    background: #f5f5f5;
+    color: var(--text-color);
+}
+
+.ride-action-button.accept:hover {
+    background: #7257e6;
+}
+
+.ride-action-button.decline:hover {
+    background: #e5e5e5;
+}
+
+/* Ride Status Indicator */
+.ride-status-indicator {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.status-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.status-icon i {
+    font-size: 18px;
+    color: #8568FF;
+}
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-text #ride-status {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.status-text #status-detail {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Status states */
+.ride-status-indicator.accepted .status-icon {
+    background-color: #e6f7ff;
+}
+
+.ride-status-indicator.accepted .status-icon i {
+    color: #1890ff;
+}
+
+.ride-status-indicator.on-way .status-icon {
+    background-color: #f6ffed;
+}
+
+.ride-status-indicator.on-way .status-icon i {
+    color: #52c41a;
+}
+
+.ride-status-indicator.in-progress .status-icon {
+    background-color: #fff7e6;
+}
+
+.ride-status-indicator.in-progress .status-icon i {
+    color: #fa8c16;
+}
+
+/* Role selection styling */
+.role-selection {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0;
+    gap: 10px;
+}
+
+.role-option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #f9f9f9;
+}
+
+.role-option:hover {
+    border-color: #d7d0ff;
+    background-color: #f5f3ff;
+}
+
+.role-option.selected {
+    border-color: var(--primary-color);
+    background-color: #f0eeff;
+}
+
+.role-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.role-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 500;
+    color: #555;
+}
+
+.role-option.selected label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.role-option label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-bottom: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    border: 1px solid #eee;
+}
+
+.role-option:first-child label::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23555"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+}
+
+.role-option:last-child label::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23555"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01ZM6.5 16C5.67 16 5 15.33 5 14.5C5 13.67 5.67 13 6.5 13C7.33 13 8 13.67 8 14.5C8 15.33 7.33 16 6.5 16ZM17.5 16C16.67 16 16 15.33 16 14.5C16 13.67 16.67 13 17.5 13C18.33 13 19 13.67 19 14.5C19 15.33 18.33 16 17.5 16ZM5 11L6.5 6.5H17.5L19 11H5Z"/></svg>');
+}
+
+.role-option.selected:first-child label::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238568FF"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+    border-color: var(--primary-color);
+}
+
+.role-option.selected:last-child label::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238568FF"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01ZM6.5 16C5.67 16 5 15.33 5 14.5C5 13.67 5.67 13 6.5 13C7.33 13 8 13.67 8 14.5C8 15.33 7.33 16 6.5 16ZM17.5 16C16.67 16 16 15.33 16 14.5C16 13.67 16.67 13 17.5 13C18.33 13 19 13.67 19 14.5C19 15.33 18.33 16 17.5 16ZM5 11L6.5 6.5H17.5L19 11H5Z"/></svg>');
+    border-color: var(--primary-color);
+}
+
+/* Success and error messages */
+.success-message,
+.error-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.success-message.active,
+.error-message.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.error-message {
+    background-color: #F44336;
+    color: white;
+}

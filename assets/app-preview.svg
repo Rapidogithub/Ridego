@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f5f5f5"/>
+  
+  <!-- Phones frame -->
+  <g transform="translate(50, 30)">
+    <!-- Phone 1 - Onboarding -->
+    <rect x="0" y="0" width="160" height="340" rx="20" fill="#FFFFFF" stroke="#DDDDDD" stroke-width="2"/>
+    <rect x="70" y="15" width="20" height="4" rx="2" fill="#333333"/>
+    <rect x="0" y="30" width="160" height="280" fill="#FFFFFF"/>
+    
+    <!-- Logo -->
+    <text x="45" y="80" font-family="Arial" font-size="24" font-weight="bold" fill="#333333">ridé go</text>
+    <circle cx="125" cy="75" r="3" fill="#8568FF"/>
+    
+    <!-- Illustration placeholder -->
+    <rect x="30" y="100" width="100" height="80" rx="10" fill="#F2EFFF"/>
+    <text x="80" y="150" text-anchor="middle" font-family="Arial" font-size="12" fill="#8568FF">Illustration</text>
+    
+    <!-- Content -->
+    <text x="80" y="220" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#333333">Rapido Power Pass</text>
+    <text x="80" y="240" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">Pass for daily commuters to</text>
+    <text x="80" y="255" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">make their commute easy</text>
+    <text x="80" y="270" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">with flat rates.</text>
+    
+    <!-- Dots -->
+    <circle cx="70" y="290" r="3" fill="#8568FF"/>
+    <rect x="75" y="287" width="10" height="6" rx="3" fill="#8568FF"/>
+    <circle cx="90" y="290" r="3" fill="#DDDDDD"/>
+    
+    <!-- Next button -->
+    <circle cx="120" y="290" r="15" fill="#8568FF"/>
+    <text x="120" y="295" text-anchor="middle" font-family="Arial" font-size="16" fill="#FFFFFF">→</text>
+  </g>
+  
+  <g transform="translate(230, 30)">
+    <!-- Phone 2 - Sign up -->
+    <rect x="0" y="0" width="160" height="340" rx="20" fill="#FFFFFF" stroke="#DDDDDD" stroke-width="2"/>
+    <rect x="70" y="15" width="20" height="4" rx="2" fill="#333333"/>
+    <rect x="0" y="30" width="160" height="280" fill="#FFFFFF"/>
+    
+    <!-- Back button and title -->
+    <text x="20" y="60" font-family="Arial" font-size="18" fill="#333333">←</text>
+    <text x="20" y="85" font-family="Arial" font-size="20" font-weight="bold" fill="#333333">Sign up</text>
+    <text x="20" y="105" font-family="Arial" font-size="10" fill="#888888">Already have an account? Log in</text>
+    
+    <!-- Form fields -->
+    <rect x="20" y="125" width="55" height="40" rx="5" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <rect x="85" y="125" width="55" height="40" rx="5" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="20" y="122" font-family="Arial" font-size="10" fill="#888888">First name</text>
+    <text x="85" y="122" font-family="Arial" font-size="10" fill="#888888">Last name</text>
+    
+    <rect x="20" y="175" width="120" height="40" rx="5" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="20" y="172" font-family="Arial" font-size="10" fill="#888888">Email</text>
+    
+    <rect x="20" y="225" width="120" height="40" rx="5" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="20" y="222" font-family="Arial" font-size="10" fill="#888888">Password</text>
+    
+    <!-- Sign up button -->
+    <rect x="20" y="285" width="120" height="40" rx="5" fill="#8568FF"/>
+    <text x="80" y="310" text-anchor="middle" font-family="Arial" font-size="14" fill="#FFFFFF">Sign up</text>
+  </g>
+  
+  <g transform="translate(410, 30)">
+    <!-- Phone 3 - User Dashboard -->
+    <rect x="0" y="0" width="160" height="340" rx="20" fill="#FFFFFF" stroke="#DDDDDD" stroke-width="2"/>
+    <rect x="70" y="15" width="20" height="4" rx="2" fill="#333333"/>
+    <rect x="0" y="30" width="160" height="280" fill="#FFFFFF"/>
+    
+    <!-- Header -->
+    <text x="20" y="60" font-family="Arial" font-size="12" fill="#333333">Hi, User.</text>
+    
+    <!-- Map area -->
+    <rect x="0" y="70" width="160" height="140" fill="#E8E8E8"/>
+    <text x="80" y="140" text-anchor="middle" font-family="Arial" font-size="14" fill="#888888">Map View</text>
+    
+    <!-- Action buttons -->
+    <circle cx="40" y="230" r="20" fill="#8568FF"/>
+    <text x="40" y="234" text-anchor="middle" font-family="Arial" font-size="12" fill="#FFFFFF">H</text>
+    
+    <circle cx="80" y="230" r="20" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="80" y="234" text-anchor="middle" font-family="Arial" font-size="12" fill="#333333">R</text>
+    
+    <circle cx="120" y="230" r="20" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="120" y="234" text-anchor="middle" font-family="Arial" font-size="12" fill="#333333">P</text>
+    
+    <!-- Search bar -->
+    <rect x="20" y="260" width="120" height="30" rx="15" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="80" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">Search Destination</text>
+    
+    <!-- Bottom nav -->
+    <rect x="0" y="310" width="160" height="30" fill="#FFFFFF" stroke="#EEEEEE" stroke-width="1"/>
+    <text x="30" y="330" text-anchor="middle" font-family="Arial" font-size="10" fill="#8568FF">Book</text>
+    <text x="80" y="330" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">History</text>
+    <text x="130" y="330" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">Profile</text>
+  </g>
+  
+  <g transform="translate(590, 30)">
+    <!-- Phone 4 - Confirm Ride -->
+    <rect x="0" y="0" width="160" height="340" rx="20" fill="#FFFFFF" stroke="#DDDDDD" stroke-width="2"/>
+    <rect x="70" y="15" width="20" height="4" rx="2" fill="#333333"/>
+    <rect x="0" y="30" width="160" height="280" fill="#FFFFFF"/>
+    
+    <!-- Header -->
+    <text x="20" y="60" font-family="Arial" font-size="14" fill="#333333">←</text>
+    <text x="45" y="60" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Confirm</text>
+    
+    <!-- Map area -->
+    <rect x="0" y="70" width="160" height="120" fill="#E8E8E8"/>
+    <text x="80" y="130" text-anchor="middle" font-family="Arial" font-size="14" fill="#888888">Route Map</text>
+    
+    <!-- Confirmation panel -->
+    <rect x="0" y="190" width="160" height="150" rx="20" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="80" y="210" text-anchor="middle" font-family="Arial" font-size="10" fill="#888888">By continuing you agree to the T&C</text>
+    
+    <!-- Ride details card -->
+    <rect x="20" y="220" width="120" height="60" rx="10" fill="#F9F9F9"/>
+    <text x="30" y="235" font-family="Arial" font-size="10" font-weight="bold" fill="#888888">RIDE DETAILS</text>
+    <text x="30" y="255" font-family="Arial" font-size="10" fill="#333333">Sector 8, Jaipur</text>
+    <text x="30" y="270" font-family="Arial" font-size="10" fill="#333333">IT Park, Mansarovar</text>
+    
+    <!-- Ride time -->
+    <circle cx="30" y="295" r="10" fill="#8568FF"/>
+    <text x="30" y="299" text-anchor="middle" font-family="Arial" font-size="10" fill="#FFFFFF">R</text>
+    <text x="50" y="290" font-family="Arial" font-size="8" fill="#888888">Tuesday 22nd May</text>
+    <text x="50" y="302" font-family="Arial" font-size="12" font-weight="bold" fill="#333333">09:30 AM</text>
+    
+    <!-- Confirm button -->
+    <rect x="20" y="315" width="120" height="35" rx="5" fill="#8568FF"/>
+    <text x="80" y="337" text-anchor="middle" font-family="Arial" font-size="12" fill="#FFFFFF">Schedule a ride</text>
+  </g>
+  
+  <!-- App Title -->
+  <text x="400" y="390" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#333333">Ride Go - Ride Sharing App</text>
+</svg> 

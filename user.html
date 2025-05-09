@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Go - Dashboard</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-screen">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="user-greeting">
+                    <h3>Hi, <span id="user-name">User</span>.</h3>
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="map-container">
+                <div id="map" class="map"></div>
+                <div class="map-markers">
+                    <!-- Dynamic markers will be added by JS -->
+                </div>
+            </div>
+
+            <!-- Removed circular buttons, replaced with a clean CTA -->
+            <div class="primary-cta">
+                <button class="ride-now-btn" id="ride-now-btn">
+                    <i class="fas fa-car"></i>
+                    <span>Ride Now</span>
+                </button>
+            </div>
+
+            <div class="quick-actions">
+                <div class="quick-action-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </div>
+                <div class="quick-action-item">
+                    <i class="fas fa-box"></i>
+                    <span>Package</span>
+                </div>
+                <div class="quick-action-item">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </div>
+                <div class="quick-action-item">
+                    <i class="fas fa-star"></i>
+                    <span>Saved</span>
+                </div>
+            </div>
+
+            <div class="destination-suggestions">
+                <h4>Popular Destinations</h4>
+                <div class="suggestion-cards">
+                    <div class="suggestion-card">
+                        <i class="fas fa-building"></i>
+                        <span>Office</span>
+                    </div>
+                    <div class="suggestion-card">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="suggestion-card">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Mall</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ride-form-container">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <gmpx-placeautocomplete id="destination-search" placeholder="Where to?">
+                        <input type="text" placeholder="Where to?">
+                    </gmpx-placeautocomplete>
+                </div>
+            </div>
+
+            <div class="bottom-navigation">
+                <div class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-car"></i>
+                    <span>Ride Now</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-box"></i>
+                    <span>Package</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ride booking panel (hidden by default) -->
+    <div class="ride-booking-panel" id="ride-booking-panel">
+        <!-- Step indicators for booking process -->
+        <div class="step-indicator">
+            <div class="step active">
+                <div class="step-circle">1</div>
+                <div class="step-label">Set Location</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-label">Select Vehicle</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-label">Confirm</div>
+            </div>
+        </div>
+        
+        <div class="location-inputs">
+            <div class="location-input pickup">
+                <i class="fas fa-circle start-icon"></i>
+                <gmpx-placeautocomplete id="pickup-location" placeholder="Pickup location">
+                    <input type="text" placeholder="Pickup location">
+                </gmpx-placeautocomplete>
+            </div>
+            <div class="location-input dropoff">
+                <i class="fas fa-map-marker-alt end-icon"></i>
+                <gmpx-placeautocomplete id="dropoff-location" placeholder="Drop-off location">
+                    <input type="text" placeholder="Drop-off location">
+                </gmpx-placeautocomplete>
+            </div>
+        </div>
+        <div class="ride-options">
+            <div class="ride-option">
+                <div class="ride-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="ride-details">
+                    <span class="ride-name">Rapido Go</span>
+                    <span class="ride-price">₹120</span>
+                </div>
+            </div>
+            <div class="ride-option selected">
+                <div class="ride-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <div class="ride-details">
+                    <span class="ride-name">Rapido 3D</span>
+                    <span class="ride-price">₹150</span>
+                </div>
+            </div>
+        </div>
+        <button class="book-ride-button">Book Ride</button>
+    </div>
+
+    <!-- Load scripts in the correct order -->
+    <!-- First load Supabase config -->
+    <script src="supabase/config.js"></script>
+    
+    <!-- Load the Maps component loader script -->
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcdRiSnfsWVkJ4TJNuKyUjNJgcTmmAJBM&libraries=places,geometry,marker&region=IN&callback=initMap&loading=async&v=beta">
+    </script>
+    
+    <!-- Then load the app scripts -->
+    <script src="scripts/user.js"></script>
+    <script src="scripts/map.js"></script>
+</body>
+</html> 

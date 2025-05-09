@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Ride - Ride Go</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/fix.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="confirm-screen">
+            <header class="confirm-header">
+                <a href="user.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h2>Confirm</h2>
+            </header>
+
+            <!-- Updated step indicators for booking process -->
+            <div class="step-indicator">
+                <div class="step completed">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Set Location</div>
+                </div>
+                <div class="step completed">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Select Vehicle</div>
+                </div>
+                <div class="step active">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Confirm</div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div id="map" class="map"></div>
+                <div class="route-indicators">
+                    <!-- Dynamic route markers added by JS -->
+                </div>
+            </div>
+
+            <div class="ride-confirmation-panel">
+                <div class="terms-agreement">
+                    <p>By continuing you agree to the <a href="#" class="terms-link">T&C</a></p>
+                </div>
+                
+                <div class="ride-details-card">
+                    <h3>RIDE DETAILS</h3>
+                    
+                    <div class="ride-detail-item">
+                        <div class="time">00:20</div>
+                        <div class="location-info">
+                            <i class="fas fa-circle start-icon"></i>
+                            <span>Sector 8, Jaipur</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ride-detail-item">
+                        <div class="time">01:15</div>
+                        <div class="location-info">
+                            <i class="fas fa-map-marker-alt end-icon"></i>
+                            <span>IT Park, Mansarovar, Jaipur</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ride-time-selector">
+                    <div class="ride-icon">
+                        <div class="profile-circle">
+                            <i class="fas fa-car"></i>
+                        </div>
+                    </div>
+                    <div class="ride-time">
+                        <div class="ride-day">
+                            <span>Ride</span>
+                            <span class="day-time">(Tuesday 22nd May)</span>
+                        </div>
+                        <div class="ride-hour">09:30<span class="am-pm">AM</span></div>
+                    </div>
+                </div>
+                
+                <div class="ride-type">
+                    <div class="vehicle-type active">
+                        <span class="vehicle-name">Rapido 3D</span>
+                        <span class="vehicle-price">₹ 50</span>
+                    </div>
+                </div>
+                
+                <!-- PIN Confirmation -->
+                <div class="pin-confirmation">
+                    <div class="pin-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>This 4-digit PIN will be shared with your driver when they arrive. The driver must verify this PIN before starting your ride for security.</span>
+                    </div>
+                    <div class="pin-display">
+                        <span class="pin-code">1234</span>
+                    </div>
+                    <div class="pin-instructions">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Important: Do not share this PIN with anyone other than your assigned driver.</span>
+                    </div>
+                </div>
+                
+                <!-- Ride Status Indicator -->
+                <div class="ride-status-indicator">
+                    <div class="status-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="status-text">
+                        <span id="ride-status">Waiting for driver...</span>
+                        <span id="status-detail">Your ride request has been sent. A driver will accept it soon.</span>
+                    </div>
+                </div>
+                
+                <button class="schedule-ride-button">Book Ride</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load scripts in the correct order -->
+    <!-- First load Supabase config -->
+    <script src="supabase/config.js"></script>
+    
+    <!-- Load the Maps component loader script -->
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcdRiSnfsWVkJ4TJNuKyUjNJgcTmmAJBM&libraries=places,geometry,marker&region=IN&callback=initMap&loading=async&v=beta">
+    </script>
+    
+    <!-- Then load the app scripts -->
+    <script src="scripts/user.js"></script>
+    <script src="scripts/map.js"></script>
+</body>
+</html> 
